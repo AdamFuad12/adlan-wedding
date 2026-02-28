@@ -499,21 +499,26 @@ footer li {
     margin: 0.3rem;
   }
 
-  .timeline li .timeline-image {
-    width: 80px;
-    height: 80px;
-  }
-
   .timeline li .timeline-panel {
     width: 65%;
-    transform: translateX(-20px);
+    transform: translateX(-10px);
   }
 
   .timeline li .timeline-panel::before {
     top: 30px;
+    left: -15px;
+    border-right-width: 15px;
   }
 
   .timeline li .timeline-panel::after {
     top: 31px;
+    left: -13px;
+    border-right-width: 14px;
+  }
+
+  .timeline li .timeline-image {
+    width: 80px;
+    height: 80px;
+    margin-left: 40px;
   }
 }
