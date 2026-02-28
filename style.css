@@ -499,26 +499,35 @@ footer li {
     margin: 0.3rem;
   }
 
-  .timeline li .timeline-panel {
-    width: 65%;
-    transform: translateX(-10px);
+  .timeline li .timeline-image {
+    width: 80px;
+    height: 80px;
+    left: 10px; /* Geser sedikit agar tidak menempel layar kiri */
+    margin-left: 0;
   }
 
+  /* 2. Atur panel teks agar tidak ditarik ke kiri (hapus translateX) */
+  .timeline li .timeline-panel {
+    width: 65%;
+    float: right;
+    transform: none; /* Menghilangkan penarikan ke kiri yang bikin tabrakan */
+    margin-right: 10px;
+  }
+
+  /* 3. Perbaiki posisi tanda panah agar muncul di kiri panel */
   .timeline li .timeline-panel::before {
     top: 30px;
-    left: -15px;
-    border-right-width: 15px;
+    left: -15px; /* Tetap di sisi kiri kotak teks */
+    right: auto;
+    border-left-width: 0;
+    border-right-width: 15px; /* Panah menghadap ke kiri (ke arah gambar) */
   }
 
   .timeline li .timeline-panel::after {
     top: 31px;
-    left: -13px;
+    left: -13px; /* Lapisan dalam panah */
+    right: auto;
+    border-left-width: 0;
     border-right-width: 14px;
-  }
-
-  .timeline li .timeline-image {
-    width: 80px;
-    height: 80px;
-    margin-left: 40px;
   }
 }
