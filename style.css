@@ -506,20 +506,20 @@ footer li {
   .timeline li .timeline-image {
     width: 80px;
     height: 80px;
-    left: 60px;
-    margin-left: -40px;
-    top: 16px;
+    left: 60px !important;
+    transform: translateX(-50%) !important;
+    margin-left: 0;
   }
 
   .timeline li .timeline-panel {
-    width: calc(100% - 120px);
+    width: calc(100% - 130px);
     float: right;
     margin-right: 10px;
     transform: none;
   }
 
   .timeline li .timeline-panel::before {
-    top: 30px;
+    top: 25px;
     left: -15px;
     right: auto;
     border-left-width: 0;
@@ -527,7 +527,7 @@ footer li {
   }
 
   .timeline li .timeline-panel::after {
-    top: 31px;
+    top: 26px;
     left: -13px;
     right: auto;
     border-left-width: 0;
