@@ -499,45 +499,6 @@ footer li {
     margin: 0.3rem;
   }
 
-  .mynavbar .offcanvas.offcanvas-end {
-    width: 280px !important;
-    background-color: white !important;
-    visibility: visible !important;
-  }
-
-  .mynavbar .offcanvas-body {
-    display: block !important;
-    width: 100% !important;
-    padding: 2rem 1rem !important;
-    overflow-x: hidden !important;
-  }
-
-  .mynavbar .navbar-nav {
-    display: block !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .mynavbar .nav-link {
-    display: block !important;
-    width: 100% !important;
-    white-space: nowrap !important;
-    text-align: center !important;
-    font-size: 1.2rem !important;
-    padding: 15px 0 !important;
-    color: #444 !important;
-    border-bottom: 1px solid #f8f8f8;
-  }
-
-  .mynavbar .offcanvas-header {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    width: 100% !important;
-    border-bottom: 1px solid #eee;
-  }
-
   .timeline::before {
     left: 40px !important;
   }
