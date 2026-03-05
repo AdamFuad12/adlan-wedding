@@ -500,22 +500,23 @@ footer li {
   }
 
   .timeline::before {
-    left: 60px;
+    left: 60px !important;
   }
 
   .timeline li .timeline-image {
     width: 80px;
     height: 80px;
     left: 60px !important;
+    margin-left: 0 !important;
     transform: translateX(-50%) !important;
-    margin-left: 0;
+    top: 0;
   }
 
   .timeline li .timeline-panel {
-    width: calc(100% - 130px);
-    float: right;
+    width: calc(100% - 130px) !important;
+    float: right !important;
     margin-right: 10px;
-    transform: none;
+    transform: none !important;
   }
 
   .timeline li .timeline-panel::before {
