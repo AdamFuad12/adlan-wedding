@@ -499,52 +499,47 @@ footer li {
     margin: 0.3rem;
   }
 
+  .mynavbar .navbar-toggler {
+    display: none !important;
+  }
+
   .mynavbar .offcanvas {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: 100vh !important;
+    position: static !important;
+    display: block !important;
     visibility: visible !important;
+    width: 100% !important;
+    height: auto !important;
+    background: transparent !important;
+    border: none !important;
+    transform: none !important;
+    transition: none !important;
   }
 
   .mynavbar .offcanvas-body {
     display: flex !important;
-    flex-direction: column !important;
+    flex-direction: row !important;
     justify-content: center !important;
-    align-items: center !important;
-    width: 100% !important;
     padding: 0 !important;
-    overflow-x: hidden !important;
-  }
-
-  .mynavbar .navbar-nav {
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-  }
-
-  .mynavbar .nav-link {
-    display: block !important;
-    width: auto !important;
-    min-width: 200px !important;
-    text-align: center !important;
-    font-size: 2.2rem !important;
-    padding: 1rem 0 !important;
-    white-space: nowrap !important;
-    color: #444 !important;
+    overflow: visible !important;
   }
 
   .mynavbar .offcanvas-header {
+    display: none !important;
+  }
+
+  .mynavbar .navbar-nav {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
     justify-content: center !important;
+    gap: 10px !important;
     width: 100% !important;
   }
 
-  .mynavbar .btn-close {
-    position: absolute !important;
-    right: 20px !important;
-    top: 20px !important;
+  .mynavbar .nav-link {
+    font-size: 0.9rem !important;
+    padding: 0.5rem 0.8rem !important;
+    white-space: nowrap !important;
+    text-transform: uppercase;
   }
 
   .timeline::before {
