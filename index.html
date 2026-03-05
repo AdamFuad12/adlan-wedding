@@ -371,82 +371,52 @@
       </div>
     </section>
 
-    <section id="rsvp" class="rsvp">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-8 col-10 text-center">
-            <h2>Konfirmasi Kehadiran</h2>
-            <p>Isi form di bawah ini untuk melakukan konfirmasi kehadiran.</p>
-          </div>
-        </div>
+<section id="rsvp" class="rsvp">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-10 text-center">
+        <h2>Konfirmasi Kehadiran</h2>
+        <p>Isi form di bawah ini untuk melakukan konfirmasi kehadiran dan memberikan ucapan.</p>
+      </div>
+    </div>
 
-        <form
-          class="row row-cols-md-auto g-3 align-items-center justify-content-center"
-          method="POST"
-          action="https://script.google.com/macros/s/AKfycby028ENfMFFR72zinKdymhWWuCuvx6kuOU4ClHKRcR_sQShha2-sCxl1gre0-yNpkNH/exec"
-          id="my-form"
-        >
-          <div class="col-12">
-            <div class="mb-3">
-              <label for="nama" class="form-label">Nama</label>
-              <input type="text" class="form-control" id="nama" name="nama" />
-            </div>
-          </div>
-          <div class="col-12">
-            <div class="mb-3">
-              <label for="jumlah" class="form-label">Jumlah</label>
-              <input
-                type="number"
-                class="form-control"
-                id="jumlah"
-                name="jumlah"
-                min="1"
-                max="5"
-                length="1"
-                value="1"
-              />
-            </div>
-          </div>
-          <div class="col-12">
-            <div class="mb-3">
-              <label for="status" class="form-label">Konfirmasi</label>
-              <select name="status" id="status" class="form-select">
-                <option selected>Pilih salah satu</option>
-                <option value="Hadir">Hadir</option>
-                <option value="Tidak Hadir">Tidak Hadir</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-12" style="margin-top: 35px">
-            <button class="btn btn-primary">Kirim</button>
-          </div>
-        </form>
+    <form class="row justify-content-center" method="POST" id="my-form">
+  <div class="col-md-3 mb-3">
+    <label for="nama" class="form-label">Nama</label>
+    <input type="text" class="form-control" id="nama" name="nama" required />
+  </div>
+  <div class="col-md-2 mb-3">
+    <label for="jumlah" class="form-label">Jumlah</label>
+    <input type="number" class="form-control" id="jumlah" name="jumlah" min="1" max="5" value="1" />
+  </div>
+  <div class="col-md-3 mb-3">
+    <label for="status" class="form-label">Konfirmasi</label>
+    <select name="status" id="status" class="form-select" required>
+      <option value="" selected>Pilih salah satu</option>
+      <option value="Hadir">Hadir</option>
+      <option value="Tidak Hadir">Tidak Hadir</option>
+    </select>
+  </div>
 
-        <div class="row justify-content-center mt-5">
-          <div class="col-md-6">
-            <div id="disqus_thread"></div>
-<script>
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-    /*
-    var disqus_config = function () {
-    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    */
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://adlan-wedding.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-          </div>
+  <div class="col-md-8 mb-3">
+    <label for="pesan" class="form-label">Ucapan & Doa</label>
+    <textarea class="form-control" id="pesan" name="pesan" rows="3" placeholder="Tulis ucapan doa restu Anda..." required></textarea>
+  </div>
+
+  <div class="col-md-8 text-center">
+    <button class="btn btn-primary w-50 mx-auto" id="submit-btn">Kirim</button>
+  </div>
+</form>
+
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-8 col-10">
+        <div id="comments-display" class="p-3 rounded shadow-sm bg-white" style="max-height: 250px; overflow-y: auto; border: 1px solid #999;">
+          <p class="text-center text-muted">Memuat ucapan...</p>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <section id="gifts" class="gifts">
       <div class="container">
@@ -689,6 +659,78 @@
 
   document.querySelector("#nama").value = nama;
 </script>
+
+<script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycby5UmfOsG6i__HroZmu78UQARnyPr1r8eu5-QEyD7S4_78FKX_PyJv41JPdHpeGZ8Q/exec'; // Ganti dengan URL dari hasil Deploy Apps Script
+const form = document.getElementById('my-form');
+  const commentsDisplay = document.querySelector('#comments-display');
+  const btnKirim = document.getElementById('submit-btn');
+
+  // Fungsi mengambil data dari Google Sheets (GET)
+  function loadComments() {
+    fetch(scriptURL) 
+      .then(res => res.json())
+      .then(data => {
+        commentsDisplay.innerHTML = '';
+        if (data.length === 0) {
+          commentsDisplay.innerHTML = '<p class="text-center text-muted">Belum ada ucapan.</p>';
+          return;
+        }
+        
+        data.forEach(item => {
+          // Logika Ikon: Centang untuk Hadir, Silang untuk Tidak Hadir
+          const isHadir = item.status === 'Hadir';
+          const icon = isHadir 
+            ? '<i class="bi bi-check-circle-fill text-success" title="Hadir"></i>' 
+            : '<i class="bi bi-x-circle-fill text-danger" title="Tidak Hadir"></i>';
+          
+          const card = `
+            <div class="card mb-3 border-0 border-bottom">
+              <div class="card-body p-2">
+                <div class="d-flex align-items-center mb-1">
+                  <h6 class="fw-bold mb-0 me-2">${item.nama}</h6>
+                  ${icon}
+                </div>
+                <p class="card-text small mb-1 text-dark">${item.pesan || ''}</p>
+                <small class="text-muted" style="font-size: 10px;">${item.tanggal || ''}</small>
+              </div>
+            </div>
+          `;
+          commentsDisplay.innerHTML += card;
+        });
+      })
+      .catch(err => {
+        console.error('Gagal memuat:', err);
+        commentsDisplay.innerHTML = '<p class="text-center text-danger">Gagal memuat ucapan.</p>';
+      });
+  }
+
+  // Load komentar pertama kali saat halaman dibuka
+  window.addEventListener('DOMContentLoaded', loadComments);
+
+  // Kirim data ke Google Sheets (POST)
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    btnKirim.disabled = true;
+    btnKirim.innerText = "Mengirim...";
+
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        btnKirim.disabled = false;
+        btnKirim.innerText = "Kirim";
+        alert("Terima kasih atas konfirmasi dan ucapannya!");
+        form.reset();
+        loadComments(); // Refresh komentar secara real-time
+      })
+      .catch(error => {
+        btnKirim.disabled = false;
+        btnKirim.innerText = "Kirim";
+        console.error('Error!', error.message);
+      });
+  });
+</script>
+  </body>
+</html>
 
   </body>
 </html>
