@@ -499,55 +499,50 @@ footer li {
     margin: 0.3rem;
   }
 
-  .mynavbar .navbar-toggler {
-    display: none !important;
+  .mynavbar .offcanvas-end {
+    width: 250px !important;
+    background-color: #ffffff !important;
   }
 
-  .mynavbar .offcanvas {
-    position: static !important;
-    display: block !important;
-    visibility: visible !important;
-    width: 100% !important;
-    height: auto !important;
-    background: transparent !important;
-    border: none !important;
-    transform: none !important;
-    box-shadow: none !important;
+  .mynavbar .offcanvas-header {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 1.5rem 1rem !important;
+  }
+
+  .mynavbar .offcanvas-title {
+    font-family: "Sacramento", cursive;
+    font-size: 1.8rem;
   }
 
   .mynavbar .offcanvas-body {
     display: flex !important;
-    flex-direction: row !important;
-    justify-content: center !important;
-    padding: 10px 0 !important;
-    overflow: visible !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    padding-top: 2rem !important;
   }
 
   .mynavbar .navbar-nav {
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
     width: 100% !important;
+    flex-direction: column !important;
     gap: 15px !important;
-    margin: 0 !important;
-  }
-
-  .mynavbar .offcanvas-header {
-    display: none !important;
   }
 
   .mynavbar .nav-link {
-    font-size: 0.85rem !important;
-    font-weight: 600 !important;
-    color: #444 !important;
+    font-family: "Work Sans", sans-serif;
+    font-size: 1.1rem !important;
+    font-weight: 500 !important;
     text-transform: uppercase;
+    color: #555 !important;
     white-space: nowrap !important;
-    padding: 5px !important;
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
   }
 
-  .mynavbar .container {
-    flex-direction: column !important;
-    align-items: center !important;
+  .mynavbar .nav-link:active,
+  .mynavbar .nav-link:focus {
+    color: #be185d !important;
   }
 
   .timeline::before {
