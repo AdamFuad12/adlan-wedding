@@ -68,6 +68,7 @@ body {
 
 .mynavbar .offcanvas {
   height: 100vh;
+  width: 250px;
 }
 
 .mynavbar .navbar-brand,
@@ -79,6 +80,15 @@ body {
 
 .mynavbar .nav-link {
   text-transform: uppercase;
+  width: 100%; /* Pastikan link memenuhi lebar menu */
+  display: block;
+  padding: 1rem;
+}
+
+.offcanvas-body .navbar-nav {
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .home {
@@ -490,7 +500,7 @@ footer li {
 /* Mobile */
 @media (max-width: 576px) {
   html {
-    font-size: 55%;
+    font-size: 60%;
   }
   .simply-countdown > .simply-section {
     width: 5rem;
@@ -498,25 +508,31 @@ footer li {
     padding: 0.7rem;
     margin: 0.3rem;
   }
+  .mynavbar .nav-link {
+    font-size: 1.5rem !important; /* Ukuran font menu yang terbaca */
+    text-align: left;
+    margin-bottom: 10px;
+  }
 
+  /* Kunci khusus untuk TIMELINE agar tidak merusak NAVBAR */
   .timeline::before {
-    left: 60px !important;
+    left: 40px !important; /* Geser garis sedikit ke kiri agar lebih luas untuk teks */
   }
 
   .timeline li .timeline-image {
-    width: 80px;
-    height: 80px;
-    left: 60px !important;
+    width: 70px !important;
+    height: 70px !important;
+    left: 40px !important;
     margin-left: 0 !important;
     transform: translateX(-50%) !important;
-    top: 0;
   }
 
   .timeline li .timeline-panel {
-    width: calc(100% - 130px) !important;
+    width: calc(
+      100% - 90px
+    ) !important; /* Memberi ruang lebih lebar untuk teks */
     float: right !important;
-    margin-right: 10px;
-    transform: none !important;
+    margin-right: 0;
   }
 
   .timeline li .timeline-panel::before {
