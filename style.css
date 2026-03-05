@@ -501,30 +501,9 @@ footer li {
 
   .mynavbar .offcanvas {
     width: 100% !important;
-    height: 100vh !important;
     max-width: 100% !important;
-    border: none !important;
+    height: 100vh !important;
     visibility: visible !important;
-  }
-
-  .mynavbar .offcanvas-header {
-    display: flex !important;
-    justify-content: center !important;
-    position: relative !important;
-    padding-top: 3rem !important;
-  }
-
-  .mynavbar .offcanvas-title {
-    font-family: "Sacramento", cursive;
-    font-size: 3rem !important;
-    margin: 0 auto !important;
-  }
-
-  .mynavbar .btn-close {
-    position: absolute !important;
-    top: 2rem !important;
-    right: 2rem !important;
-    margin: 0 !important;
   }
 
   .mynavbar .offcanvas-body {
@@ -532,24 +511,40 @@ footer li {
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
-    height: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
   }
 
   .mynavbar .navbar-nav {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
     width: 100% !important;
-    text-align: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
   }
 
   .mynavbar .nav-link {
-    font-family: "Work Sans", sans-serif;
-    font-size: 2rem !important;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    padding: 1.5rem 0 !important;
     display: block !important;
+    width: auto !important;
+    min-width: 200px !important;
+    text-align: center !important;
+    font-size: 2.2rem !important;
+    padding: 1rem 0 !important;
+    white-space: nowrap !important;
+    color: #444 !important;
+  }
+
+  .mynavbar .offcanvas-header {
+    justify-content: center !important;
     width: 100% !important;
+  }
+
+  .mynavbar .btn-close {
+    position: absolute !important;
+    right: 20px !important;
+    top: 20px !important;
   }
 
   .timeline::before {
