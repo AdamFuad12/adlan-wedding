@@ -504,16 +504,20 @@ footer li {
     height: 100vh !important;
     max-width: 100% !important;
     border: none !important;
+    visibility: visible !important;
   }
 
   .mynavbar .offcanvas-header {
+    display: flex !important;
     justify-content: center !important;
     position: relative !important;
-    padding-top: 2rem !important;
+    padding-top: 3rem !important;
   }
 
   .mynavbar .offcanvas-title {
-    font-size: 3.5rem !important;
+    font-family: "Sacramento", cursive;
+    font-size: 3rem !important;
+    margin: 0 auto !important;
   }
 
   .mynavbar .btn-close {
@@ -521,7 +525,6 @@ footer li {
     top: 2rem !important;
     right: 2rem !important;
     margin: 0 !important;
-    z-index: 1060;
   }
 
   .mynavbar .offcanvas-body {
@@ -529,20 +532,24 @@ footer li {
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
-    padding-bottom: 5rem !important;
+    height: 100% !important;
   }
 
   .mynavbar .navbar-nav {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     width: 100% !important;
     text-align: center !important;
   }
 
   .mynavbar .nav-link {
-    font-size: 2.2rem !important;
-    color: #555 !important;
-    padding: 1rem 0 !important;
-    letter-spacing: 2px !important;
-    font-weight: 500 !important;
+    font-family: "Work Sans", sans-serif;
+    font-size: 2rem !important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 1.5rem 0 !important;
+    display: block !important;
+    width: 100% !important;
   }
 
   .timeline::before {
