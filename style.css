@@ -499,6 +499,10 @@ footer li {
     margin: 0.3rem;
   }
 
+  .mynavbar {
+    display: none !important;
+  }
+
   .timeline::before {
     left: 40px !important;
   }
