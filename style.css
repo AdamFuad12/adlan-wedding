@@ -499,6 +499,18 @@ footer li {
     margin: 0.3rem;
   }
 
+  .navbar-toggler {
+    display: none !important;
+  }
+
+  .offcanvas {
+    display: none !important;
+  }
+
+  .mynavbar .container {
+    justify-content: center;
+  }
+
   .timeline::before {
     left: 40px !important;
   }
